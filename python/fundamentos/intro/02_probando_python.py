@@ -35,3 +35,4 @@ elif dia == "domingo":
     print("Descansa rey")
 else:
     print("¡Cada día es una nueva oportunidad de aprender!")
+    
