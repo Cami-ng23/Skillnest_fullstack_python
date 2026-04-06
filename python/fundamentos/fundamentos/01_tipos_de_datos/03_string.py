@@ -51,4 +51,21 @@ print("Mi nombre es {} y tengo {} años de edad.".format(nombre, edad))
 #Imprime: Mi nombre es Marcelo y tengo 29 años de edad.
 print("Tengo {} años de edad y mi nombre es {}".format(edad, nombre))
 
-#Imprime: Tengo 29 años de edad y mi nombre es Marcelo
+#Imprime: Tengo 29 años de edad y mi nombre es Marcelo 
+
+# %-formatting
+'''
+Quizás en algún código tepuedas topar con un método
+que se utilizaba antes deque existiera las formas vistas 
+antes de interpolación. En lugar 
+de utilizar llaves, se utiliza el 
+símbolo % para indicar un parámetro; %s para indicar una cadena y %d para 
+indicar un número. Una vez establecida la cadena, se coloca de nuevo % para separar el
+texto de las variables que serán interpoladas. Por ejemplo:
+'''
+
+nombre = "Marcelo"
+edad = 29
+print("Mi nombre es %s y tengo %d años de edad." % (nombre, edad))
+
+#Imprime: Mi nombre es Marcelo y tengo 29 años de edad.
