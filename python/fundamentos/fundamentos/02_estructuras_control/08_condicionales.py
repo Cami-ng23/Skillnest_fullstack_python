@@ -24,9 +24,11 @@ if num < 60:
 #No se cumple con la condicional, por lo que no se ejecuta el bloque de código
 
 ##Ingresar 3 numeros por teclado e identificar cual es el mayor y cual es el menor pstrar ambos
+'''
 num1 = int(input("Ingresar primer número: "))
 num2 = int(input("Ingresar segundo número: "))
 num3 = int(input("Ingresar tercer número: "))
+
 
 mayor = num1
 if num2 > mayor:
@@ -42,3 +44,30 @@ if num3 < menor:
     
 print("El número mayor es:", mayor)
 print("El número menor es:", menor)
+'''
+n1 = int(input("Ingresar primer número: "))
+n2 = int(input("Ingresar segundo número: "))
+n3 = int(input("Ingresar tercer número: "))
+
+if n1 >= n2 and n1 >= n3:
+    mayor = n1
+    if n2 <= n3:
+        menor = n2
+    else:
+        menor = n3
+
+elif n2 >= n1 and n2 >= n3:
+    mayor = n2
+    if n1 <= n3:
+        menor = n1
+    else:
+        menor = n3
+
+else:
+    mayor = n3
+    if n1 <= n2:
+        menor = n1
+    else:
+        menor = n2
+
+print(f"El mayor es {mayor} y el menor es {menor}")
