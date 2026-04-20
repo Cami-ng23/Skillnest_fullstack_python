@@ -47,7 +47,7 @@ def ejercicio4():
 # Imprime cada valor en la cuenta regresiva.
 # (Tu código aquí)
 def ejercicio5():
-    for temporal in range (2024 , -1 , -3):
+    for temporal in range (2024 , 0 , -3):
         print(temporal)
 
 # 6. Contador dinámico
