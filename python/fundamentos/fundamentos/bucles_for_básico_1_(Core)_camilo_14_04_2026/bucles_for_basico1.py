@@ -55,8 +55,11 @@ def ejercicio5():
 # Imprime los números en el rango que sean múltiplos de 'salto'.
 # (Tu código aquí)
 def ejercicio6():
-    for multiplos in range (3 , 10 , 2):
-        if multiplos % 2 == 0:
+    inicio = 3
+    fin = 10
+    salto = 2
+    for multiplos in range(inicio, fin + 1):
+        if multiplos % salto == 0:
             print(multiplos)
 
 # Ejemplo: si inicio = 3, fin = 10, y salto = 2
