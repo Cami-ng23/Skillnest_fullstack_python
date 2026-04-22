@@ -1,3 +1,4 @@
+import os
 # Funciones básicas practica 2
 
 #----------------------------Ejercicio 1-------------------------------
@@ -35,3 +36,35 @@ valor_multiplicado_longitud(5, 2)
 
 valor_multiplicado_longitud(7, 5)
 # Debe retornar: [35, 35, 35, 35, 35]
+
+def limpiar_consola():
+    os.system('cls')
+    
+    # ------------------ MENÚ ------------------
+while True:
+    print("\n--- MENÚ DE EJERCICIOS ---")
+    print("1.- Ejercicio 1")
+    print("2.- Ejercicio 2")
+    print("3.- Ejercicio 3")
+    print("4.- Ejercicio 4")
+    print("5.- Ejercicio 5")
+    print("0.- Salir")
+
+    opcion = input("Elige una opción: ")
+
+    if opcion == "1":
+        limpiar_consola()
+        multiplica_por_2()
+    elif opcion == "2":
+        ()
+    elif opcion == "3":
+        ()
+    elif opcion == "4":
+        ()
+    elif opcion == "5":
+        ()
+    elif opcion == "6":
+        print("Saliendo...")
+        break
+    else:
+        print("Opción no válida")
