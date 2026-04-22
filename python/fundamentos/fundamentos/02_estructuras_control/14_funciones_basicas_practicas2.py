@@ -13,7 +13,10 @@ print(result1)
 
 #----------------------------Ejercicio 2-------------------------------
 # Analiza publicaciones
-suma_y_resta([120, 115])
+def suma_y_resta(list):
+    suma = list[0] + list[1]
+    resta = list[0] - list[1]
+    print(f"suma: {suma}  | resta : {resta}")
 # Imprime: 235 y retorna: 5
 
 #----------------------------Ejercicio 3-------------------------------
