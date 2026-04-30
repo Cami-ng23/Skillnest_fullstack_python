@@ -27,29 +27,44 @@ class UsuarioStreaming:
         self.lista_reproduccion = []
 
 
-def agregar_a_lista(self, titulo):
-    """Agrega un contenido a la lista de reproducción del usuario."""
-    self.lista_reproduccion.append(contenido)
-    print(f"{contenido} agregado a la lista de {self.nombre}")
+    def agregar_a_lista(self, titulo):
+        """Agrega un contenido a la lista de reproducción del usuario."""
+        self.lista_reproduccion.append(contenido)
+        print(f"{contenido} agregado a la lista de {self.nombre}")
     pass
 
 
-def ver_contenido(self, titulo):
-    """Simula que el usuario reproduce un contenido."""
+    def ver_contenido(self, titulo):
+        """Simula que el usuario reproduce un contenido."""
+        if titulo in self.lista_reproduccion:
+            print("El usuario {self.nombre} esta viendo {titulo}")
+        else: 
+            print(f"Titulo no encontrado {titulo}")
     pass
 
 
-def cambiar_suscripcion(self, nueva_suscripcion):
+    def cambiar_suscripcion(self, nueva_suscripcion):
         """Cambia el tipo de suscripción del usuario."""
+        self.suscripcion = nueva_suscripcion
+        print(f"{self.nombre} cambió su suscripción a {nueva_suscripcion}")
         pass
 
 
-def mostrar_info_usuario(self):
+    def mostrar_info_usuario(self):
         """Muestra la información del usuario y su lista de reproducción."""
-        pass
-    
-    
+        print("\n--- INFO USUARIO ---")
+        print(f"Nombre: {self.nombre}")
+        print(f"Email: {self.email}")
+        print(f"Suscripción: {self.suscripcion}")
+        print("Lista de reproducción:")
+        for item in self.lista_reproduccion:
+            print(f"- {item}")
 
+camilo = UsuarioStreaming("Carlos", "carlos@email.com")
+camilo.agregar_a_lista("Breaking Bad")
+camilo.agregar_a_lista("Stranger Things")
+camilo.ver_contenido("Breaking Bad")
+camilo.ver_contenido("Stranger Things")
 while True:
     print("\n--- MENÚ DE EJERCICIOS ---")
     print("1.- Ejercicio 1")
@@ -73,3 +88,6 @@ while True:
         break
     else:
         print("Opción no válida")
+    
+    
+
