@@ -21,7 +21,12 @@ Haz que el tercer usuario intente pagar una cantidad menor a su saldo pendiente 
 
 class SuscripcionStreaming:
     costos_suscripcion = {"Gratis": 0, "Estándar": 5.99, "Premium": 10.99}
-
+    def __init__(self, usuario, costo_mensual, saldo_pendiente, tipo_suscripcion = "Gratis"):
+        self.usuario = usuario
+        self.costo_mensual = costo_mensual
+        self.saldo_pendiente = 0
+        self.tipo_suscripcion = tipo_suscripcion
+    
     def __init__(self, usuario, tipo_suscripcion="Gratis"):
         pass
 
