@@ -52,11 +52,14 @@ e1.mostrar_info()
 print()
 e2.mostrar_info()
 print()
+e3.mostrar_info()
+print()
 
 #usar Atributo de clase
 print("===ATRIBUTO DE CLASE===")
 print(e1.colegio)
 print(e2.colegio)
+print(e3.colegio)
 print()
 
 #Uso de metodo de clase
@@ -64,6 +67,7 @@ print("===METODO DE CLASE===")
 Estudiante.cambiar_colegio("Purkuyen")
 print(e1.colegio)
 print(e2.colegio)
+print(e3.colegio)
 
 #Contar Estudiante 
 print("===CONTAR ESTUDIANTES ===")
@@ -71,6 +75,19 @@ print(f"Total estudiantes : {Estudiante.cantidad_estudiantes()}")
 
 #MÉTODO estático
 print("===MÉTODO ESTÁTICO===")
+print(f"{e1.nombre} aprueba?")
+print(Estudiante.aprobar(e1.nota))
+print()
+
+print(f"{e2.nombre} aprueba?")
+print(Estudiante.aprobar(e2.nota))
+print()
+
+print(f"{e3.nombre} aprueba?")
+print(Estudiante.aprobar(e3.nota))
+print()
+
+
 
 ## Función repaso.
 # Crear Función que valide usuario y contraseña
