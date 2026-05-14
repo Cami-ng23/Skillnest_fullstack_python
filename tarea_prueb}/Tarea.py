@@ -1,7 +1,7 @@
-
 class CafeteriaCliente:
     total_clientes = 0
-
+    
+    # metodos de INSTANCIAS
     def __init__(self, nombre):
         self.nombre = nombre
         self.puntos = 0
