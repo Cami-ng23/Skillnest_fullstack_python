@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de Sesión / Registro</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0ede8;
+      --surface: #ffffff;
+      --border: #c8c3bc;
+      --text: #1a1815;
+      --muted: #6b6560;
+      --accent: #2d5be3;
+      --accent-hover: #1a44c8;
+      --input-bg: #faf9f7;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: var(--shadow), 0 0 0 1px var(--border);
+      overflow: hidden;
+      max-width: 720px;
+      width: 100%;
+    }
+
+    .panel {
+      padding: 3rem 2.5rem;
+    }
+
+    .panel:first-child {
+      border-right: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-bottom: 1.8rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--input-bg);
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus {
+      border-color: var(--accent);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 0.75rem;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: var(--accent-hover); }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover { background: var(--bg); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Inicio de Sesión -->
+    <div class="panel">
+      <h2>Inicio de Sesión</h2>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" placeholder="">
+      </div>
+      <button class="btn">Iniciar Sesión</button>
+    </div>
+
+    <!-- Registro -->
+    <div class="panel">
+      <h2>Registro</h2>
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Conf. Contraseña</label>
+        <input type="password" placeholder="">
+      </div>
+      <button class="btn">Registrar</button>
+    </div>
+  </div>
+</body>
+</html>
