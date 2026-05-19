@@ -1,0 +1,185 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f0ede8;
+  --surface: #ffffff;
+  --border: #c8c3bc;
+  --text: #1a1815;
+  --muted: #6b6560;
+  --accent: #2d5be3;
+  --accent-hover: #1a44c8;
+  --input-bg: #faf9f7;
+  --radius: 6px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 1.8rem;
+}
+
+.form-group { margin-bottom: 1rem; }
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--input-bg);
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6560' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  padding-right: 2rem;
+}
+
+input:focus, select:focus { border-color: var(--accent); }
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.btn:hover { background: var(--accent-hover); }
+
+/* Card container genérico */
+.container {
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: var(--shadow), 0 0 0 1px var(--border);
+  width: 100%;
+}
+
+/* Formularios centrados (login, registro, nuevo, editar) */
+.container--form {
+  max-width: 420px;
+  padding: 3rem 2.5rem;
+}
+
+/* Formulario con grid label + input */
+.form-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+/* Dashboard */
+.container--table {
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.table-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead th {
+  text-align: left;
+  padding: 0.65rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+tbody td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: middle;
+}
+
+tbody tr:hover td { background: #f7f5f2; }
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  color: var(--muted);
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.icon-btn:hover { color: var(--text); background: var(--bg); }
+.icon-btn.delete:hover { color: #d63b3b; }
+
+svg { width: 16px; height: 16px; }
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.badge-admin { background: #dce6fb; color: #1a44c8; }
+.badge-user  { background: #e8f5e9; color: #2e7d32; }

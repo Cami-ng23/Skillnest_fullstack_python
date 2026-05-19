@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Usuario</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+  <div class="container container--form">
+    <a href="dashboard.html" class="back-link">← Volver al dashboard</a>
+    <h2>Nuevo Usuario</h2>
+    <div class="form-row">
+      <label>Nombre</label>
+      <input type="text">
+    </div>
+    <div class="form-row">
+      <label>E-mail</label>
+      <input type="email">
+    </div>
+    <div class="form-row">
+      <label>Contraseña</label>
+      <input type="password">
+    </div>
+    <div class="form-row">
+      <label>Conf. Contraseña</label>
+      <input type="password">
+    </div>
+    <div class="form-row">
+      <label>Tipo de Usuario</label>
+      <select>
+        <option>Administrador</option>
+        <option>Usuario</option>
+      </select>
+    </div>
+    <div class="btn-row">
+      <button class="btn" onclick="location.href='dashboard.html'">Crear</button>
+    </div>
+  </div>
+</body>
+</html>
