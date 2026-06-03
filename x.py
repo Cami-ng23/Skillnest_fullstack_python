@@ -48,7 +48,7 @@ class prestamo:
         else:
             print("El libro no esta disponible.")
         
-    def devolver_libro(self):
+    def devolver_libro(self): 
         self.libro.cambiar_disponibilidad(True)
         print("Libro devuelto correctamente.")
 
@@ -91,7 +91,7 @@ prestamo1.registrar_prestamo
 direccion1.envio()
 print()
 usuario2.mostrar_datos()
-libro2.mostrar_informacion
+libro2.mostrar_informacion()
 prestamo2.registrar_prestamo
 direccion2.envio()
 print()
