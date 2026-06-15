@@ -19,60 +19,71 @@ Haz que el segundo usuario vea contenido exclusivo, cambie su suscripción a Pre
 Haz que el tercer usuario intente pagar una cantidad menor a su saldo pendiente y vea contenido exclusivo.
 '''
 
-class PlataformaVideo:
+class SuscripcionStreaming:
 
-    planes = {"Basico": 0, "Plus": 6.99, "Ultra": 12.99}
+    planes = {"Gratis": 0, "Estándar": 6.99, "Premium": 12.99}
 
-    def __init__(self, nombre, plan="Basico"):
-        self.nombre = nombre
-        self.plan = plan
-        self.total_pagar = 0
+    def __init__(self, usuario, tipo_suscripcion="Gratis"):
+        self.usuario = usuario
+        self.tipo_suscripcion = tipo_suscripcion
+        self.costo_mensual = self.planes[tipo_suscripcion]
+        self.saldo_pendiente = self.costo_mensual
 
-    def agregar_pago(self, monto):
-        self.total_pagar += monto
-        print(f"{self.nombre} pagó ${monto}. Total acumulado: ${self.total_pagar}")
+    def realizar_pago(self, monto):
+        self.saldo_pendiente -= monto
 
-    def cambiar_plan(self, nuevo_plan):
-        if nuevo_plan in self.planes:
-            self.plan = nuevo_plan
-            print(f"{self.nombre} ahora tiene el plan {nuevo_plan}")
+        if self.saldo_pendiente < 0:
+            self.saldo_pendiente = 0
+
+        print(f"{self.usuario} pagó ${monto}. Saldo pendiente: ${self.saldo_pendiente}")
+
+    def cambiar_suscripcion(self, nuevo_tipo):
+        if nuevo_tipo in self.planes:
+            self.tipo_suscripcion = nuevo_tipo
+            self.costo_mensual = self.planes[nuevo_tipo]
+            print(f"{self.usuario} ahora tiene la suscripción {nuevo_tipo}")
         else:
-            print("Plan no disponible")
+            print("Tipo de suscripción no disponible")
 
-    def ver_contenido(self):
-        if self.plan == "Basico":
-            print(f"{self.nombre} solo puede ver contenido normal")
+    def ver_contenido_exclusivo(self):
+        if self.tipo_suscripcion == "Gratis":
+            print(f"{self.usuario} no tiene acceso a contenido exclusivo")
         else:
-            print(f"{self.nombre} puede ver contenido premium")
+            print(f"{self.usuario} puede ver contenido exclusivo")
 
-    def mostrar_datos(self):
-        print(f"Usuario: {self.nombre}")
-        print(f"Plan actual: {self.plan}")
-        print(f"Total pagado: ${self.total_pagar}")
+    def mostrar_info_suscripcion(self):
+        print(f"Usuario: {self.usuario}")
+        print(f"Tipo de suscripción: {self.tipo_suscripcion}")
+        print(f"Costo mensual: ${self.costo_mensual}")
+        print(f"Saldo pendiente: ${self.saldo_pendiente}")
 
 
 # ---------------- USUARIOS ----------------
 
-cliente1 = PlataformaVideo("Matias", "Basico")
-cliente2 = PlataformaVideo("Fernanda", "Plus")
-cliente3 = PlataformaVideo("Ignacio", "Ultra")
+usuario1 = SuscripcionStreaming("Matias", "Gratis")
+usuario2 = SuscripcionStreaming("Fernanda", "Estándar")
+usuario3 = SuscripcionStreaming("Ignacio", "Premium")
 
 
-print("\n--- Cliente 1 ---")
-cliente1.ver_contenido()
-cliente1.agregar_pago(6.99)
-cliente1.cambiar_plan("Plus")
+print("\n--- Usuario 1 ---")
+usuario1.ver_contenido_exclusivo()
+usuario1.cambiar_suscripcion("Estándar")
+usuario1.realizar_pago(6.99)
 
-print("\n--- Cliente 2 ---")
-cliente2.ver_contenido()
-cliente2.agregar_pago(12.99)
-cliente2.cambiar_plan("Ultra")
 
-print("\n--- Cliente 3 ---")
-cliente3.ver_contenido()
-cliente3.agregar_pago(3.50)
+print("\n--- Usuario 2 ---")
+usuario2.ver_contenido_exclusivo()
+usuario2.cambiar_suscripcion("Premium")
+usuario2.realizar_pago(5)
+usuario2.realizar_pago(7.99)
 
-print("\n--- DATOS FINALES ---")
-cliente1.mostrar_datos()
-cliente2.mostrar_datos()
-cliente3.mostrar_datos()
+
+print("\n--- Usuario 3 ---")
+usuario3.realizar_pago(3.50)
+usuario3.ver_contenido_exclusivo()
+
+
+print("\n--- INFORMACIÓN FINAL ---")
+usuario1.mostrar_info_suscripcion()
+usuario2.mostrar_info_suscripcion()
+usuario3.mostrar_info_suscripcion()
