@@ -1,4 +1,4 @@
-# Trabajo Camilo Diaz
+# 👌😒😁👍Trabajo Camilo Diaz
 ## Descripción del proyecto.
 En mi proyecto lo que hicimos fue un sistema donde hay dos tipos de usuarios los cuales son admin y el usuario normal, si estás ingresado en nuestro sistema como un usuario normal el sistema solo te dará la bienvenida, si eres admin te dará opciones de administrador del sistema.
 
