@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <!-- Vinculación del CSS con Flask -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- ENCABEZADO CON NAVEGACIÓN -->
+    <header class="encabezado">
+        <h1>Pokédex</h1>
+        <p class="subtitulo">Todos los Pokémon</p>
+        
+        <!-- Botones con rutas de Flask usando url_for -->
+        <div class="botones-navegacion">
+            <a href="{{ url_for('index') }}" class="boton-nav azul">Ver todos</a>
+            <a href="{{ url_for('pokemon_limite', cantidad=5) }}" class="boton-nav verde">Ver 5 primeros</a>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        {% for pokemon in pokemons %}
+        <div class="tarjeta">
+            <!-- Número de ID arriba a la derecha -->
+            <span class="numero">#{{ pokemon.id }}</span>
+
+            <!-- Imagen principal -->
+            <div class="fondo-imagen">
+                <img src="{{ url_for('static', filename='img/' + pokemon.imagen) }}" alt="{{ pokemon.nombre }}">
+            </div>
+
+            <!-- Nombre -->
+            <h3>{{ pokemon.nombre }}</h3>
+
+            <!-- Tipo -->
+            <div class="tipo">{{ pokemon.tipo }}</div>
+
+            <!-- Barra de Poder -->
+            <div class="poder-contenedor">
+                <div class="label-poder"> Poder</div>
+                <div class="barra-gris">
+                    <div class="barra-azul" style="width: {{ pokemon.poder }}%;"></div>
+                </div>
+            </div>
+
+            <div class="datos">
+                <div class="dato-item">
+                    <small> Altura</small>
+                    <div><strong>{{ pokemon.altura }}</strong></div>
+                </div>
+                <div class="dato-item">
+                    <small> Peso</small>
+                    <div><strong>{{ pokemon.peso }}</strong></div>
+                </div>
+            </div>
+
+            <a href="/pokemon/id/{{ pokemon.id }}" class="boton-detalle">Ver detalles</a>
+        </div>
+        {% endfor %}
+    </main>
+
+</body>
+</html>

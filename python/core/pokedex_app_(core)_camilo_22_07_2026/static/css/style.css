@@ -1,0 +1,179 @@
+/* RESET BÁSICO Y TIPOGRAFÍA */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding: 30px 15px;
+}
+
+/* ENCABEZADO Y BOTONES SUPERIORES */
+.encabezado {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.encabezado h1 {
+    font-size: 2.2rem;
+    color: #1d4ed8;
+}
+
+.subtitulo {
+    color: #64748b;
+    margin-top: 5px;
+    font-size: 0.95rem;
+}
+
+.botones-navegacion {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.boton-nav {
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.boton-nav.azul { background-color: #2563eb; }
+.boton-nav.verde { background-color: #10b981; }
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* LA CAJA / TARJETA */
+.tarjeta {
+    width: 260px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    padding: 16px;
+    text-align: center;
+    position: relative;
+}
+
+.numero {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #475569;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.fondo-imagen {
+    background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
+}
+
+.fondo-imagen img {
+    max-height: 110px;
+    max-width: 110px;
+    object-fit: contain;
+}
+
+.tarjeta h3 {
+    font-size: 1.2rem;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.tipo {
+    background-color: #22c55e;
+    color: white;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* BARRA DE PODER */
+.poder-contenedor {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.label-poder {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.barra-gris {
+    background-color: #e2e8f0;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.barra-azul {
+    background-color: #2563eb;
+    height: 100%;
+}
+
+/* SECCIÓN DE ALTURA Y PESO */
+.datos {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.dato-item small {
+    color: #64748b;
+    font-size: 11px;
+}
+
+.dato-item div {
+    color: #0f172a;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+/* BOTÓN INFERIOR */
+.boton-detalle {
+    display: block;
+    width: 100%;
+    border: 1px solid #2563eb;
+    color: #2563eb;
+    padding: 8px 0;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.boton-detalle:hover {
+    background-color: #2563eb;
+    color: white;
+}
