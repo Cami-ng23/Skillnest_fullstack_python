@@ -1,95 +1,35 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "base.html" %}
 
-<head>
 
-    <meta charset="UTF-8">
+{% block title %}
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+Mercado de Frutas
 
-    <title>Mercado de Frutas</title>
+{% endblock %}
 
-    <!-- Bootstrap CSS -->
 
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-    rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
+{% block content %}
 
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-    <!-- Hoja de estilos -->
-
-    <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/style.css') }}">
-
-</head>
-
-<body>
-
-<!-- ===================================== -->
-<!-- Barra de navegación                   -->
-<!-- ===================================== -->
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-
-    <div class="container">
-
-        <a class="navbar-brand fw-bold"
-           href="{{ url_for('index') }}">
-
-            <i class="bi bi-apple"></i>
-
-            Mercado de Frutas
-
-        </a>
-
-        <div>
-
-            <a class="nav-link text-white d-inline"
-
-               href="{{ url_for('index') }}">
-
-                Inicio
-
-            </a>
-
-            <a class="nav-link text-white d-inline"
-
-               href="{{ url_for('catalogo') }}">
-
-                Catálogo
-
-            </a>
-
-        </div>
-
-    </div>
-
-</nav>
-
-<!-- ===================================== -->
-<!-- Encabezado                            -->
-<!-- ===================================== -->
+<!-- ==================================================
+     HERO
+=================================================== -->
 
 <header class="hero text-center text-white">
 
     <div class="container">
 
-        <h1>
+        <h1 class="display-4 fw-bold">
 
-            Frutas Frescas a Tu Puerta
+            🍎 Mercado de Frutas
 
         </h1>
 
-        <p>
+        <p class="lead">
 
-            Selecciona tus frutas favoritas y realiza tu pedido.
+            Frutas frescas y de calidad directamente
+            hasta tu puerta.
 
         </p>
 
@@ -97,40 +37,295 @@
 
 </header>
 
-<!-- ===================================== -->
-<!-- Formulario                            -->
-<!-- ===================================== -->
+
+
+<!-- ==================================================
+     FORMULARIO PRINCIPAL
+=================================================== -->
 
 <form
+    action="{{ url_for('checkout') }}"
+    method="POST"
+>
 
-action="{{ url_for('checkout') }}"
 
-method="POST">
+    <div class="container my-5">
 
-<div class="container mt-5">
+        <div class="row g-4">
 
-<div class="row">
 
-<!-- ===================================== -->
-<!-- Lista de frutas                       -->
-<!-- ===================================== -->
+            <!-- ==================================================
+                 PRODUCTOS
+            =================================================== -->
 
-<div class="col-lg-8">
+            <div class="col-lg-8">
 
-<div class="card shadow">
+                <div class="card shadow border-0">
 
-<div class="card-header">
 
-<h3>
+                    <div class="card-header bg-success text-white">
 
-Selecciona tus frutas
+                        <h3 class="mb-0">
 
-</h3>
+                            <i class="bi bi-basket-fill"></i>
 
-</div>
+                            Selecciona tus frutas
 
-<div class="card-body">
+                        </h3>
 
-<div class="row">
+                    </div>
 
-{% for fruta in frutas %}
+
+                    <div class="card-body">
+
+                        <div class="row g-4">
+
+
+                            <!-- ==================================================
+                                 RECORRER FRUTAS
+                            =================================================== -->
+
+                            {% for fruta in frutas %}
+
+
+                            <div class="col-md-6">
+
+
+                                <div class="card fruta-card h-100 shadow-sm">
+
+
+                                    <!-- CONTENEDOR DE IMAGEN -->
+
+                                    <div class="imagen-fruta">
+
+
+                                        <img
+                                            src="{{ url_for(
+                                                'static',
+                                                filename='images/' + fruta.imagen
+                                            ) }}"
+                                            alt="{{ fruta.nombre }}"
+                                        >
+
+
+                                    </div>
+
+
+                                    <!-- INFORMACIÓN -->
+
+                                    <div class="card-body">
+
+
+                                        <h4 class="card-title">
+
+                                            {{ fruta.nombre }}
+
+                                        </h4>
+
+
+                                        <h5 class="text-success fw-bold">
+
+                                            ${{ "%.2f"|format(fruta.precio) }}
+
+                                        </h5>
+
+
+                                        <p class="card-text">
+
+                                            {{ fruta.descripcion }}
+
+                                        </p>
+
+
+                                    </div>
+
+
+                                    <!-- CANTIDAD -->
+
+                                    <div class="card-footer bg-white border-0">
+
+
+                                        <label
+                                            for="{{ fruta.id }}"
+                                            class="form-label fw-bold"
+                                        >
+
+                                            Cantidad
+
+                                        </label>
+
+
+                                        <input
+                                            type="number"
+                                            id="{{ fruta.id }}"
+                                            name="{{ fruta.id }}"
+                                            class="form-control"
+                                            min="0"
+                                            value="0"
+                                        >
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+                            {% endfor %}
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 DATOS DEL CLIENTE
+            =================================================== -->
+
+            <div class="col-lg-4">
+
+
+                <div class="card shadow border-0">
+
+
+                    <div class="card-header bg-primary text-white">
+
+                        <h3 class="mb-0">
+
+                            <i class="bi bi-person-fill"></i>
+
+                            Datos del Cliente
+
+                        </h3>
+
+                    </div>
+
+
+                    <div class="card-body">
+
+
+                        <!-- NOMBRE -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="nombre"
+                                class="form-label fw-bold"
+                            >
+
+                                Nombre
+
+                            </label>
+
+
+                            <input
+                                type="text"
+                                id="nombre"
+                                name="nombre"
+                                class="form-control"
+                                placeholder="Ingresa tu nombre"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- EMAIL -->
+
+                        <div class="mb-3">
+
+                            <label
+                                for="email"
+                                class="form-label fw-bold"
+                            >
+
+                                Correo electrónico
+
+                            </label>
+
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="correo@ejemplo.com"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- DIRECCIÓN -->
+
+                        <div class="mb-4">
+
+                            <label
+                                for="direccion"
+                                class="form-label fw-bold"
+                            >
+
+                                Dirección de entrega
+
+                            </label>
+
+
+                            <textarea
+                                id="direccion"
+                                name="direccion"
+                                class="form-control"
+                                rows="4"
+                                placeholder="Ingresa tu dirección"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+
+                        <!-- SEPARADOR -->
+
+                        <hr>
+
+
+
+                        <!-- BOTÓN -->
+
+                        <button
+                            type="submit"
+                            class="btn btn-success btn-lg w-100"
+                        >
+
+                            <i class="bi bi-cart-check-fill"></i>
+
+                            Crear Orden
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</form>
+
+
+{% endblock %}
