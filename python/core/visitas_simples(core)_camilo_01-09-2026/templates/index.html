@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis visitas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="caja">
+        <h1>Contador de visitas</h1>
+
+        <div class="numero">{{ visitas }}</div>
+        <p>Visitas a esta página</p>
+
+        <div class="botones">
+            <a href="{{ url_for('sumar_dos') }}">Sumar 2</a>
+            <a href="{{ url_for('reiniciar') }}">Reiniciar</a>
+        </div>
+
+        <h2>Sumar una cantidad</h2>
+        <form action="{{ url_for('sumar') }}" method="POST">
+            <input type="number" name="cantidad" min="1" placeholder="Cantidad" required>
+            <button type="submit">Agregar</button>
+        </form>
+
+        <p>Reinicios: <strong>{{ reinicios }}</strong></p>
+
+        <a class="borrar" href="{{ url_for('destruir') }}">Borrar sesión</a>
+    </div>
+</body>
+</html>

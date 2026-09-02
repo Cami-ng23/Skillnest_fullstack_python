@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #eeeeee;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.caja {
+    background: white;
+    width: 500px;
+    max-width: 85%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.numero {
+    font-size: 70px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.botones a, button, .borrar {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botones a {
+    background: #333333;
+    color: white;
+}
+
+input {
+    padding: 10px;
+    width: 120px;
+}
+
+button {
+    background: #333333;
+    color: white;
+}
+
+.borrar {
+    color: #b00020;
+}
