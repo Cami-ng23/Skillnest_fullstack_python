@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>El Juego del Destino</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="pagina">
+
+    <div class="ruta">Ruta: /</div>
+
+    <main class="tarjeta">
+        <header class="cabecera">
+            <div class="icono-circulo">☾</div>
+            <h1>El Juego del Destino</h1>
+            <p>Descubre qué te depara el futuro</p>
+        </header>
+
+        <section class="contenido">
+            <form action="/enviar" method="POST">
+
+                <label for="nombre">👤 Tu nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+                <label for="edad">▣ Tu edad</label>
+                <input type="number" id="edad" name="edad" placeholder="Tu edad" min="1" required>
+
+                <label for="color">◉ Tu color favorito</label>
+                <input type="text" id="color" name="color"
+                       placeholder="Ej. rojo, azul, verde, morado, amarillo..." required>
+
+                <label for="animal">♣ Tu animal favorito</label>
+                <input type="text" id="animal" name="animal"
+                       placeholder="Ej. perro, gato, águila, león, delfín..." required>
+
+                <div class="bola">
+                    ◒
+                </div>
+
+                <button type="submit">✎ Revelar mi destino</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

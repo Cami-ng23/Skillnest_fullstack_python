@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tu Destino</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="pagina resultado">
+
+    <div class="ruta">Ruta: /futuro</div>
+    <div class="modo">☀</div>
+
+    <main class="tarjeta">
+        <header class="cabecera">
+            <div class="icono-circulo sol">☼</div>
+            <h1>Tu Destino ha sido Revelado</h1>
+            <p>Las estrellas han hablado, {{ nombre }}</p>
+        </header>
+
+        <section class="contenido">
+            <div class="mensaje">
+                <div class="estrella">★</div>
+                <p>{{ prediccion }}</p>
+            </div>
+
+            <div class="datos">
+                <div class="dato">
+                    <h3>◉ Tu Color</h3>
+                    <div class="color-circulo"></div>
+                    <p>Tu preferencia por el color <b>{{ color }}</b> revela tu afinidad con la misterio y descubrimiento.</p>
+                </div>
+
+                <div class="dato">
+                    <h3>♣ Tu Animal</h3>
+                    <div class="animal">🐾</div>
+                    <p>Tu conexión con el <b>{{ animal }}</b> simboliza tu naturaleza de independencia y misterio.</p>
+                </div>
+            </div>
+
+            <h2>Tu número de la suerte</h2>
+            <div class="numero">{{ numero_suerte }}</div>
+
+            <a class="volver" href="/">Volver a jugar</a>
+        </section>
+    </main>
+
+</body>
+</html>
