@@ -1,0 +1,94 @@
+body {
+    background-color: #0b0f19;
+    background-image:
+        radial-gradient(#1e293b 2px, transparent 2px),
+        radial-gradient(#334155 4px, transparent 4px),
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 80px 80px, 160px 160px, 20px 20px;
+    background-position: 0 0, 40px 40px, 0 0;
+}
+
+.card-custom {
+    border-radius: 20px;
+    background-color: #f1f5f9;
+}
+
+.header-custom {
+    background: linear-gradient(135deg, #18132b 0%, #241a45 100%);
+}
+
+.icon-header-wrapper {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+}
+
+.input-icon-custom {
+    position: absolute;
+    left: 15px;
+    top: 24px;
+    transform: translateY(-50%);
+    color: #000000;
+    font-size: 1.1rem;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.form-control-custom {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    padding-left: 45px !important;
+    color: #000000 !important;
+    font-size: 0.95rem !important;
+}
+
+.form-control-custom::placeholder {
+    color: #94a3b8;
+}
+
+.form-control-custom:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+    border-color: #a5b4fc !important;
+}
+
+.form-control-custom:focus~.input-icon-custom {
+    color: #6366f1;
+}
+
+.text-muted-custom {
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+.crystal-ball {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.btn-submit-custom {
+    background: linear-gradient(90deg, #7c3aed 0%, #6366f1 100%);
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.btn-submit-custom:hover {
+    opacity: 0.95;
+}
+
+.btn-submit-custom:active {
+    transform: scale(0.98);
+}
+
+.color-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+    display: block;
+}
