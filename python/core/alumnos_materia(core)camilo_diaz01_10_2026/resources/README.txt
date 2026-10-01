@@ -1,0 +1,1 @@
+Aquí puedes guardar el archivo ERD del proyecto.
