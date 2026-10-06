@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block titulo %} - Nuevo Libro{% endblock %}
+{% block content %}
+<h1 class="bh-title">Agregar Nuevo Libro</h1>
+<div class="bh-panel">
+  <form method="post" novalidate class="bh-form">
+    <div class="row mb-3">
+      <label for="titulo" class="col-md-3 col-form-label">Título:</label>
+      <div class="col-md-9"><input type="text" class="form-control" id="titulo" name="titulo" minlength="2" maxlength="150" value="{{ datos.get('titulo', '') }}" required></div>
+    </div>
+    <div class="row mb-3">
+      <label for="autor" class="col-md-3 col-form-label">Autor:</label>
+      <div class="col-md-9"><input type="text" class="form-control" id="autor" name="autor" minlength="2" maxlength="100" value="{{ datos.get('autor', '') }}" required></div>
+    </div>
+    <div class="row mb-3">
+      <label for="genero" class="col-md-3 col-form-label">Género:</label>
+      <div class="col-md-9">
+        <select class="form-select" id="genero" name="genero" required>
+          <option value="">Selecciona un género</option>
+          {% for g in generos %}<option value="{{ g }}" {{ 'selected' if datos.get('genero') == g }}>{{ g }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="fecha_publicacion" class="col-md-3 col-form-label">Fecha de publicación:</label>
+      <div class="col-md-9"><input type="date" class="form-control" id="fecha_publicacion" name="fecha_publicacion" value="{{ datos.get('fecha_publicacion', '') }}" required></div>
+    </div>
+    <div class="row mb-4">
+      <label for="descripcion" class="col-md-3 col-form-label">Descripción:</label>
+      <div class="col-md-9"><textarea class="form-control" id="descripcion" name="descripcion" rows="6" minlength="10" required>{{ datos.get('descripcion', '') }}</textarea></div>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <button type="submit" class="btn btn-dark px-4">Guardar</button>
+      <a href="{{ url_for('libro.mis_libros') }}">Cancelar</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
