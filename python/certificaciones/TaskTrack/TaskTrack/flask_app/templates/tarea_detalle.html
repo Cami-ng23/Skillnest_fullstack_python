@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<div class="d-flex justify-content-between">
+    <h1>{{ tarea.titulo }}</h1>
+    {% if tarea.estado != 'Completada' %}
+        <a class="btn btn-success" href="/tareas/completar/{{ tarea.id }}">Marcar como completada</a>
+    {% endif %}
+</div>
+
+<div class="card p-4 mb-4">
+    <p><b>Categoría:</b> {{ tarea.categoria }}</p>
+    <p><b>Prioridad:</b> {{ tarea.prioridad }}</p>
+    <p><b>Estado:</b> {{ tarea.estado }}</p>
+    <p><b>Fecha límite:</b> {{ tarea.fecha_limite }}</p>
+    <p><b>Descripción:</b></p>
+    <p>{{ tarea.descripcion }}</p>
+</div>
+
+<h3>Comentarios</h3>
+
+{% for comentario in comentarios %}
+<div class="border rounded p-2 mb-2">
+    <b>{{ comentario.nombre }} {{ comentario.apellido }}</b>
+    <p class="mb-0">{{ comentario.comentario }}</p>
+</div>
+{% else %}
+<p>No hay comentarios.</p>
+{% endfor %}
+
+<form action="/tareas/{{ tarea.id }}/comentario" method="POST" class="mt-3">
+    <textarea class="form-control mb-2" name="comentario" placeholder="Escribe un comentario..." required></textarea>
+    <button class="btn btn-dark">Comentar</button>
+</form>
+
+<a href="/dashboard" class="d-block mt-3">← Volver a Mis Tareas</a>
+{% endblock %}
