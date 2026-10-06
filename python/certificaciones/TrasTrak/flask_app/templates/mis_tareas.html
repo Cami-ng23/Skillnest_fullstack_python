@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block titulo %} - Mis Libros{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="bh-title mb-0">Mis Libros</h1>
+  <a href="{{ url_for('libro.nuevo') }}" class="btn btn-primary">+ Nuevo Libro</a>
+</div>
+
+<div class="table-responsive bh-panel p-0 mb-5">
+  <table class="table table-bordered table-sm align-middle mb-0 bh-table">
+    <thead><tr><th>Título</th><th>Autor</th><th>Género</th><th>Fecha</th><th>Favoritos</th><th>Acciones</th></tr></thead>
+    <tbody>
+      {% for l in mis_libros %}
+      <tr>
+        <td>{{ l.titulo }}</td><td>{{ l.autor }}</td><td>{{ l.genero }}</td>
+        <td>{{ l.fecha_publicacion }}</td><td>{{ l.total_favoritos }}</td>
+        <td class="text-nowrap">
+          <a href="{{ url_for('libro.detalle', libro_id=l.id) }}">Ver</a>
+          <a href="{{ url_for('libro.editar', libro_id=l.id) }}" class="ms-1">Editar</a>
+          <form method="post" action="{{ url_for('libro.eliminar', libro_id=l.id) }}" class="d-inline"
+                onsubmit="return confirm('¿Seguro que deseas eliminar este libro? Esta acción no se puede deshacer.');">
+            <button type="submit" class="btn btn-link p-0 ms-1 align-baseline text-danger bh-link-btn">Borrar</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="6" class="text-center text-muted py-3">Todavía no has agregado libros. Usa «+ Nuevo Libro» para empezar.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<h2 class="bh-title h3">Libros de la Comunidad</h2>
+<div class="table-responsive bh-panel p-0">
+  <table class="table table-bordered table-sm align-middle mb-0 bh-table">
+    <thead><tr><th>Título</th><th>Autor</th><th>Género</th><th>Publicado por</th><th>Favoritos</th><th>Acción</th></tr></thead>
+    <tbody>
+      {% for l in comunidad %}
+      <tr><td>{{ l.titulo }}</td><td>{{ l.autor }}</td><td>{{ l.genero }}</td><td>{{ l.publicador_nombre }}</td><td>{{ l.total_favoritos }}</td><td><a href="{{ url_for('libro.detalle', libro_id=l.id) }}">Ver</a></td></tr>
+      {% else %}
+      <tr><td colspan="6" class="text-center text-muted py-3">Aún no hay libros publicados por otros usuarios.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
