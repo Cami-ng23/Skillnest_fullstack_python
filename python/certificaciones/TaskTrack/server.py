@@ -5,7 +5,7 @@ from flask_app.controllers.usuarios import usuarios_bp
 from flask_app.controllers.tareas import tareas_bp
 from flask_app.controllers.categorias import categorias_bp
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="flask_app/templates", static_folder="flask_app/static")
 app.secret_key = "tasktrack123"
 
 bcrypt = Bcrypt(app)
