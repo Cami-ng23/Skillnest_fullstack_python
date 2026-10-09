@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block titulo %} - Explorar{% endblock %}
+{% block content %}
+<h1 class="bh-title">Libros de la Comunidad</h1>
+<div class="table-responsive bh-panel p-0">
+  <table class="table table-bordered table-sm align-middle mb-0 bh-table">
+    <thead><tr><th>Título</th><th>Autor</th><th>Género</th><th>Publicado por</th><th>Favoritos</th><th>Acción</th></tr></thead>
+    <tbody>
+      {% for l in comunidad %}
+      <tr><td>{{ l.titulo }}</td><td>{{ l.autor }}</td><td>{{ l.genero }}</td><td>{{ l.publicador_nombre }}</td><td>{{ l.total_favoritos }}</td><td><a href="{{ url_for('libro.detalle', libro_id=l.id) }}">Ver</a></td></tr>
+      {% else %}
+      <tr><td colspan="6" class="text-center text-muted py-3">Aún no hay libros publicados por otros usuarios.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

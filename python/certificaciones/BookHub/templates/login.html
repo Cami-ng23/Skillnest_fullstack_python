@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block titulo %} - Login / Registro{% endblock %}
+{% block content %}
+<div class="auth-wrapper">
+  <div class="text-center mb-4">
+    <h1 class="auth-logo"><i class="bi bi-book-fill me-2"></i>BookHub</h1>
+    <p class="mb-0">Comparte, descubre y comenta libros.</p>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+    <div class="col-lg-7">
+      <div class="bh-panel h-100">
+        <form method="post" action="{{ url_for('auth.registro') }}" id="registro" novalidate>
+          <h2 class="h5 fw-bold mb-3">Crear Cuenta</h2>
+          <div class="row mb-2 align-items-center">
+            <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
+            <div class="col-sm-8"><input type="text" class="form-control form-control-sm" id="nombre" name="nombre" minlength="2" maxlength="50" value="{{ datos.get('nombre', '') }}" required></div>
+          </div>
+          <div class="row mb-2 align-items-center">
+            <label for="apellido" class="col-sm-4 col-form-label">Apellido</label>
+            <div class="col-sm-8"><input type="text" class="form-control form-control-sm" id="apellido" name="apellido" minlength="2" maxlength="50" value="{{ datos.get('apellido', '') }}" required></div>
+          </div>
+          <div class="row mb-2 align-items-center">
+            <label for="reg_email" class="col-sm-4 col-form-label">E-mail</label>
+            <div class="col-sm-8"><input type="email" class="form-control form-control-sm" id="reg_email" name="email" maxlength="120" value="{{ datos.get('email', '') }}" required></div>
+          </div>
+          <div class="row mb-2 align-items-center">
+            <label for="reg_password" class="col-sm-4 col-form-label">Contraseña</label>
+            <div class="col-sm-8"><input type="password" class="form-control form-control-sm" id="reg_password" name="password" minlength="8" required></div>
+          </div>
+          <div class="row mb-3 align-items-center">
+            <label for="confirmar_password" class="col-sm-4 col-form-label">Confirmar Contraseña</label>
+            <div class="col-sm-8"><input type="password" class="form-control form-control-sm" id="confirmar_password" name="confirmar_password" required></div>
+          </div>
+          <div class="form-text mb-3">Mínimo 8 caracteres, con al menos una letra y un número.</div>
+          <button type="submit" class="btn btn-dark w-100">Registrarse</button>
+          <p class="small mt-3 mb-0"><a href="#login">¿Ya tienes cuenta? Inicia sesión</a></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="bh-panel h-100">
+        <form method="post" action="{{ url_for('auth.login') }}" id="login" novalidate>
+          <h2 class="h5 fw-bold mb-3">Iniciar Sesión</h2>
+          <div class="mb-3">
+            <label for="login_email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="login_email" name="email" value="{{ datos.get('login_email', '') }}" required>
+          </div>
+          <div class="mb-4">
+            <label for="login_password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="login_password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-dark w-100">Iniciar Sesión</button>
+          <p class="small mt-3 mb-0"><a href="#registro">¿No tienes cuenta? Regístrate</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

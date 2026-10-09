@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Mis Tareas</h1>
+    <a class="btn btn-primary" href="/tareas/nueva">+ Nueva Tarea</a>
+</div>
+
+<div class="card p-3 mb-4">
+    <form class="row g-2">
+        <div class="col-md-5">
+            <input class="form-control" name="buscar" value="{{ buscar }}" placeholder="Buscar por título">
+        </div>
+        <div class="col-md-4">
+            <select class="form-select" name="estado">
+                <option value="">Todos los estados</option>
+                <option value="Pendiente" {% if estado == 'Pendiente' %}selected{% endif %}>Pendiente</option>
+                <option value="En progreso" {% if estado == 'En progreso' %}selected{% endif %}>En progreso</option>
+                <option value="Completada" {% if estado == 'Completada' %}selected{% endif %}>Completada</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-dark w-100">Buscar</button>
+        </div>
+    </form>
+</div>
+
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Categoría</th>
+            <th>Prioridad</th>
+            <th>Fecha límite</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for tarea in tareas %}
+        <tr>
+            <td>{{ tarea.titulo }}</td>
+            <td>{{ tarea.categoria }}</td>
+            <td>{{ tarea.prioridad }}</td>
+            <td>{{ tarea.fecha_limite }}</td>
+            <td>{{ tarea.estado }}</td>
+            <td>
+                <a href="/tareas/{{ tarea.id }}">Ver</a> |
+                <a href="/tareas/editar/{{ tarea.id }}">Editar</a> |
+                <a href="/tareas/eliminar/{{ tarea.id }}">Borrar</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr><td colspan="6" class="text-center">No tienes tareas todavía.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-3"><div class="card p-3">Total: {{ tareas|length }}</div></div>
+    <div class="col-md-3"><div class="card p-3">Pendientes: {{ cantidades['Pendiente'] }}</div></div>
+    <div class="col-md-3"><div class="card p-3">En progreso: {{ cantidades['En progreso'] }}</div></div>
+    <div class="col-md-3"><div class="card p-3">Completadas: {{ cantidades['Completada'] }}</div></div>
+</div>
+{% endblock %}

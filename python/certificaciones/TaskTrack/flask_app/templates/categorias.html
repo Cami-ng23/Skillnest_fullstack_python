@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<h1>Categorías</h1>
+
+<div class="card p-4 mb-4">
+    <form action="/categorias/crear" method="POST" class="d-flex gap-2">
+        <input class="form-control" name="nombre" placeholder="Nueva categoría" required>
+        <button class="btn btn-primary">+ Nueva Categoría</button>
+    </form>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for categoria in categorias %}
+        <tr>
+            <td>{{ categoria.nombre }}</td>
+            <td>
+                <form action="/categorias/editar/{{ categoria.id }}" method="POST" class="d-inline">
+                    <input name="nombre" value="{{ categoria.nombre }}">
+                    <button class="btn btn-sm btn-secondary">Editar</button>
+                </form>
+                <a class="btn btn-sm btn-danger" href="/categorias/eliminar/{{ categoria.id }}">Borrar</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

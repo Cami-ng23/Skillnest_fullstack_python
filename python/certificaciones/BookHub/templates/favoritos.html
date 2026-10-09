@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block titulo %} - Mis Favoritos{% endblock %}
+{% block content %}
+<h1 class="bh-title">Mis Libros Favoritos</h1>
+{% if libros %}
+<div class="table-responsive bh-panel p-0">
+  <table class="table table-bordered table-sm align-middle mb-0 bh-table">
+    <thead><tr><th>Título</th><th>Autor</th><th>Género</th><th>Fecha</th><th>Acción</th></tr></thead>
+    <tbody>
+      {% for l in libros %}
+      <tr>
+        <td>{{ l.titulo }}</td><td>{{ l.autor }}</td><td>{{ l.genero }}</td><td>{{ l.fecha_publicacion }}</td>
+        <td><a href="{{ url_for('libro.detalle', libro_id=l.id) }}">Ver</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="bh-panel text-center text-muted py-4">
+  Todavía no tienes libros favoritos. Explora los libros de la comunidad y agrega los que te gusten.
+</div>
+{% endif %}
+{% endblock %}
