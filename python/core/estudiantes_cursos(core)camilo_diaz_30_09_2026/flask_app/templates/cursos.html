@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/cursos">Gestión Académica</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="row g-4">
+            <!-- Nuevo Curso -->
+            <div class="col-lg-5">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h1 class="h3 mb-4">Nuevo Curso</h1>
+                        <form action="/cursos/crear" method="POST">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-success">Crear</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Todos los Cursos -->
+            <div class="col-lg-7">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="h3 mb-4">Todos los Cursos</h2>
+                        {% if cursos %}
+                        <div class="list-group">
+                            {% for curso in cursos %}
+                            <a href="/cursos/{{ curso.id }}"
+                                class="list-group-item list-group-item-action mb-2 rounded">
+                                {{ curso.nombre }}
+                            </a>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="alert alert-info">No existen cursos registrados.</div>
+                        {% endif %}
+                        <div class="mt-4">
+                            <a href="/estudiantes/nuevo" class="btn btn-primary">Agregar Estudiante</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
