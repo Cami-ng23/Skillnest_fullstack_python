@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5" style="max-width: 500px;">
+        <div class="card p-4 shadow-sm">
+            <h2 class="text-center mb-4">Inicio de Sesión</h2>
+
+            {% with messages = get_flashed_messages(category_filter=['login']) %}
+            {% if messages %}
+            {% for msg in messages %}
+            <p class="text-danger small">{{ msg }}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <form action="/login" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">E-mail</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="/registrarse" class="text-decoration-none">¿No tienes cuenta? Regístrate aquí</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

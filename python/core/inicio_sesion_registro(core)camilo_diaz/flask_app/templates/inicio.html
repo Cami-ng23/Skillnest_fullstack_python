@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5 text-center">
+        <div class="jumbotron bg-white p-5 rounded shadow-sm">
+            <h1 class="display-4">¡Hola {{ usuario.nombre }}!</h1>
+            <p class="lead">Has iniciado sesión correctamente en el sistema.</p>
+            <hr class="my-4">
+            <a href="/logout" class="btn btn-danger">Cerrar Sesión</a>
+        </div>
+    </div>
+</body>
+
+</html>
